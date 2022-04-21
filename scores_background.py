@@ -2,10 +2,10 @@ import pygame
 import json
 
 class ScoreScreen:
-    '''Score screen for game. Record the past 5 matches for the player.'''
+    """Score screen for game. Record the past 5 matches for the player"""
 
     def __init__(self, MainInstance):
-        # Load the instances
+        """Load instances and variables"""
         self.MainInstance = MainInstance
         self.settings = MainInstance.settings
         self.screen = MainInstance.screen
@@ -21,7 +21,6 @@ class ScoreScreen:
         self._create_background()
 
     def _create_background(self):
-        '''Done Button Section'''
         # Load the button and create rects
         self.done_button = pygame.image.load('Drawings/done_button.PNG').convert()
         self.done_button.set_colorkey((255, 255, 255))
@@ -77,7 +76,6 @@ class ScoreScreen:
 
     def update_info(self):
         # Print the averages at the bottom of the screen
-        # Dif, winner, newline, time, moves
 
         # For the average time
         self.average_time_data = self.font.render(str(self.MainInstance.loaded_data['Avg_Time']) + 's', True, self.text_color_normal)

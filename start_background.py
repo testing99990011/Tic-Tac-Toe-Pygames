@@ -4,8 +4,7 @@ class StartBackground:
     '''Start game background'''
 
     def __init__(self, MainInstance):
-
-        # Instances and variables
+        """Create the instances and variables"""
         self.maininstance = MainInstance
         self.settings = MainInstance.settings
         self.screen = MainInstance.screen
@@ -15,7 +14,6 @@ class StartBackground:
         self._create_background_()
 
     def _create_background_(self):
-        '''Load the background values and assign default values'''
 
         # Load the start screen buttons
         self.start_button = pygame.image.load('Drawings/Start_button.PNG').convert()

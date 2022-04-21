@@ -1,10 +1,10 @@
 import pygame
 
 class SettingsBackground:
-    # Background for the settings window
+    """Background for the settings window"""
 
     def __init__(self, MainInstance):
-        # Create the instances and variables
+        """Create the instances and variables"""
         self.maininstance = MainInstance
         self.screen = MainInstance.screen
         self.settings = MainInstance.settings
@@ -18,7 +18,6 @@ class SettingsBackground:
         self._create_background_()
 
     def _create_background_(self):
-        '''Done Button Section'''
         # Load the button and create rects
         self.done_button = pygame.image.load('Drawings/done_button.PNG').convert()
         self.done_button.set_colorkey((255, 255, 255))

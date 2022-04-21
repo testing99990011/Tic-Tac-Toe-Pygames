@@ -1,17 +1,10 @@
 import pygame
 
 class Box:
-    '''
-    So when you move mouse over the background of a box, the background and possible selection are
-    both resized and pasted as 'highlights.'
-    If the box is not highlighted, normal background and x/o are pasted.
-    If game over, x/o changes color (game_background).
-    X and O are actually increased in size just not noticible. See version 1 for better example.
-    '''
+    """Individual box used in game background"""
 
     def __init__(self, MainInstance, x, y):
-
-        # Instances
+        """Instances and values for box"""
         self.maininstance = MainInstance
         self.settings = MainInstance.settings
         self.screen = MainInstance.screen
@@ -35,8 +28,6 @@ class Box:
         self.highlighted_box.fill(self.settings.box_color)
 
         # Set the highlighted box rects
-        # MUST BE A COPY OR ELSE POINT TOWARDS SAME VARIABLE. IF ITS A INT THEN YOU CANT COPY.
-        # DIFFERENCE BETWEEN POINTING TO A VARIABLE VERSUS TO A VALUE
         self.highlighted_box_rect = self.box_rect.copy()
         self.highlighted_box_rect.x -= round((self.settings.scale_factor*self.settings.box_width)/2)
         self.highlighted_box_rect.y -= round((self.settings.scale_factor*self.settings.box_width)/2)
@@ -69,7 +60,7 @@ class Box:
         self.VALUE = None
 
     def _detect_mouse_highlight(self):
-        """Highlight the box if mouse over it. Paste highlighted box over the main box"""
+        # Highlight the box if mouse over it. Paste highlighted box over the main box
         mouse = pygame.mouse.get_pos()
         if self.box_rect.collidepoint(mouse):
             self.screen.blit(self.highlighted_box, self.highlighted_box_rect)
@@ -79,14 +70,14 @@ class Box:
                 self.screen.blit(self.o_decal_highlight, self.o_decal_highlight_rect)
 
     def draw_box(self, value=None):
-        """Draw the individual box"""
-        self.screen.blit(self.box, self.box_rect)   # Necessary in case no value is given
+        # Draw the individual box
+        self.screen.blit(self.box, self.box_rect)
         if value == 0:
             self.screen.blit(self.x_decal_normal, self.x_decal_normal_rect)
         elif value == 1:
             self.screen.blit(self.o_decal_normal, self.o_decal_normal_rect)
 
-        # maininstance refers to background and we must access the main instance of that background
+        # Check if player turn and the box does not have a value
         if value == None and self.maininstance.maininstance.player_turn:
             self._detect_mouse_highlight()
             self.VALUE = None   # Reset value back to None

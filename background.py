@@ -11,7 +11,7 @@ class Background:
     """Main logic for running the background of game"""
 
     def __init__(self, MainInstance):
-        # initialize the other backgrounds used in game
+        """initialize the other backgrounds used in game"""
         self.maininstance = MainInstance
         self.settings = MainInstance.settings
         self.start_background = StartBackground(MainInstance)
@@ -20,8 +20,7 @@ class Background:
         self.scores_background = ScoreScreen(MainInstance)
 
     def _update_stats(self):
-        # Move the dict values all over by 1
-        # IF YOU DO self.shifted_dict[0] = ... YOU ARE ASSIGNING PHYSICAL KEY AT 0
+        # Update stats after each match
         self.copy_dict = copy.deepcopy(self.maininstance.loaded_data)
         for key, value in self.maininstance.loaded_data.items():
             try:
@@ -83,7 +82,6 @@ class Background:
 
         # Run the start screen if delay ends or match over
         elif self.maininstance.start_screen:
-
             # Run this if the game just ended
             if self.maininstance.match_end_delay:
                 self.game_background._draw_winning_screen()

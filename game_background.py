@@ -2,11 +2,10 @@ import pygame
 from box import Box
 
 class GameBackground:
-    '''Background for the game itself.'''
+    """Background for the game itself"""
 
     def __init__(self, background_main, MainInstance):
-
-        # Instances and Variables
+        """Instances and variables used"""
         self.maininstance = MainInstance
         self.settings = MainInstance.settings
         self.screen = MainInstance.screen
@@ -35,7 +34,7 @@ class GameBackground:
         self.ai_wins_text_rect.center = (self.settings.screen_width // 2, self.settings.screen_height - self.settings.info_height//2)
 
         # Create the text if tie
-        self.tie_wins_text = self.font_big.render("TIE", True, self.text_color)
+        self.tie_wins_text = self.font_big.render('TIE', True, self.text_color)
         self.tie_wins_text_rect = self.tie_wins_text.get_rect()
         self.tie_wins_text_rect.center = (self.settings.screen_width // 2, self.settings.screen_height - self.settings.info_height//2)
 
@@ -136,10 +135,7 @@ class GameBackground:
     def _winning_sections(self, board):
         # Flash the winning combination
 
-        # Important because what if final move results in win? Wont be a tie.
-        # Check if a tie. Check tie first because then we can overwrite winner later.
-        # We dont use this approach in main() ai_logic because ai_logic returns a winner so tie is placed
-        # at the end since return statement terminated.
+        # Check if a tie
         new_lst = []
         for row in range(1, 4):
             for col in range(1, 4):
@@ -200,6 +196,7 @@ class GameBackground:
          self.settings.screen_width,\
          self.settings.screen_height-self.settings.info_height),\
          self.settings.box_thickness)
+
         # Draw the info boxes and actual game boxes
         self._draw_info()
         self._draw_boxes()

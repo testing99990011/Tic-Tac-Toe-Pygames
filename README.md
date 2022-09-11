@@ -16,7 +16,7 @@ Run the 'main.py' file. Click the 'Start Game' button to start a match. The matc
 __main.py__ is the main driver code for the game. When run, the driver code will check events and run the main loop. __background.py__ manages the backgrounds for the game. This includes the files __start_background.py__, __game_background.py__, __settings_background.py__, and __scores_background.py__. __box.py__ is used to create the individual boxes that are used in the game and instances of this class are stored in the board dictionary. __ai_logic.py__ is used to determine the move AI will make in __main.py__ and __data_handling.py__ is used to load and store data (used in __main.py__). Finally, __settings.py__ is used to store critical variables like screenwidth, moves, and fonts. 
 
 ## Images Within Games ##
-![Screenshot](/README%20Images/Start_Screen.PNG)
+![Screenshot](/README%20Images/Start_Screen.PNG | width=90)
 ![Screenshot](/README%20Images/Game_Image_1.PNG)
 ![Screenshot](/README%20Images/Game_Image_2.PNG)
 ![Screenshot](/README%20Images/Scores_Screen.PNG)
